@@ -13,5 +13,5 @@
 int main()
 {
     Scene *s = new Scene();
-    printf("Hello!"); 
+    printf("Hello!");
 }

@@ -3,18 +3,23 @@ CXX=clang2++
 
 SRCDIR = ./src
 SOURCES = $(shell find $(SRCDIR) -type f -name *.cpp)
-HEADERS = $(shell find $(SRCDIR) -type f -name *.h)
+HEADERS = $(shell find $(SRCDIR) -type f -name *.h) $(shell find ../external/glm -type f -name *.hpp)
 OBJECTS = $(SOURCES:.cpp=.o)
-CXXFLAGS = -I $(SRCDIR)/core -fopenmp -Wall
+CXXFLAGS = -I $(SRCDIR)/core -I $(SRCDIR)/geom -I ../external/glm -I /usr/include/c++/4.2.1 -fopenmp -Wall -v
 EXEC = ./bin/cariboupt
+LDFLAGS = -lm
 
 all: $(EXEC)
 
+clean:
+	find $(SRCDIR) -type f -name *.o -delete
+	rm $(EXEC)
+
 %.o: %.c $(HEADERS)
-	$(CXX) $(CXXFLAGS) -o $@ $<
+	$(CXX) $(CXXFLAGS) -c $@ $<
 
 $(EXEC) : $(OBJECTS)
-	$(CXX) $(CXXFLAGS) -o $(EXEC) $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXEC)
 
-.cpp.o:
-	$(CXX) $(CXXFLAGS) $< -o $@
+.cpp:
+	$(CXX) $(CXXFLAGS) -c $@
