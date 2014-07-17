@@ -8,18 +8,18 @@
 
 #ifndef __CaribouPT__Scene__
 #define __CaribouPT__Scene__
-#include <stdio.h>
+
+#include "Ray.h"
 #include "glm.hpp"
-class Scene 
+
+class Scene
 {
 public:
     
-    Scene()
-    {
-        glm::vec3 v(0.5f, 0.0f,0.0f);
-        printf("Scene vec x: %f\n", v.x);
-    }
+    Scene(){}
     ~Scene(){}
+    
+    bool intersect(const Ray& r);
 };
 
 #endif /* defined(__CaribouPT__Scene__) */

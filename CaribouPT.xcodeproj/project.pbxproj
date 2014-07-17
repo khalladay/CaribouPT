@@ -262,12 +262,17 @@
 		A1808CBE1977EB0400296B62 /* vec3.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = vec3.hpp; sourceTree = "<group>"; };
 		A1808CBF1977EB0400296B62 /* vec4.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = vec4.hpp; sourceTree = "<group>"; };
 		A1808CC01977EB0400296B62 /* vector_relational.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = vector_relational.hpp; sourceTree = "<group>"; };
+		A1808CC31977EEDA00296B62 /* Ray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ray.h; sourceTree = "<group>"; };
+		A1808CC51977F5A900296B62 /* ImageWriter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ImageWriter.cpp; sourceTree = "<group>"; };
+		A1808CC61977F5A900296B62 /* ImageWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageWriter.h; sourceTree = "<group>"; };
+		A1808CC71977F95A00296B62 /* Image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		A12FCBF3197692ED00E3D7B5 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A1808CC11977EED500296B62 /* geom */,
 				A12FCBF51976968000E3D7B5 /* core */,
 				A12FCBF4197692ED00E3D7B5 /* main.cpp */,
 			);
@@ -279,6 +284,9 @@
 			children = (
 				A12FCBF6197696C400E3D7B5 /* Scene.cpp */,
 				A12FCBF7197696C400E3D7B5 /* Scene.h */,
+				A1808CC51977F5A900296B62 /* ImageWriter.cpp */,
+				A1808CC61977F5A900296B62 /* ImageWriter.h */,
+				A1808CC71977F95A00296B62 /* Image.h */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -596,6 +604,14 @@
 				A1808CAF1977EB0400296B62 /* wrap.inl */,
 			);
 			path = gtx;
+			sourceTree = "<group>";
+		};
+		A1808CC11977EED500296B62 /* geom */ = {
+			isa = PBXGroup;
+			children = (
+				A1808CC31977EEDA00296B62 /* Ray.h */,
+			);
+			path = geom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

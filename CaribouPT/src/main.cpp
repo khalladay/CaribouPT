@@ -9,9 +9,10 @@
 #include <stdio.h>
 
 #include "Scene.h"
+#include "Image.h"
 
 int main()
 {
-    Scene *s = new Scene();
-    printf("Hello!");
+    Image* s = new Image(480,320);
+    printf("Hello! %f", s->pixelData[0]);
 }
