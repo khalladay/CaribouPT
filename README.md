@@ -9,14 +9,11 @@ This project uses OpenMP®/Clang, in order to build this project you will need t
 
 Instructions for setting up OpenMP found here: [http://kylehalladay.com/all/blog/2014/07/15/Setting-Up-OpenMP-Mavericks.html](http://kylehalladay.com/all/blog/2014/07/15/Setting-Up-OpenMP-Mavericks.html)(only tested on Mavericks)
 
-###To Build: 
-
-To build from Makefile: 
+###Building from the Makefile: 
 cd &lt;location of project&gt;
 make -f MAKEFILE
 
 ###To build/debug from XCode:
-
 Launch xcode from terminal with the following commands:
 source ~/.profile
 open -a "Xcode"
