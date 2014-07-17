@@ -15,4 +15,5 @@ int main()
 {
     Image* s = new Image(480,320);
     printf("Hello! %f", s->pixelData[0]);
+    delete(s);
 }
