@@ -1,0 +1,20 @@
+SHELL = /bin/sh
+CXX=clang2++
+
+SRCDIR = ./src
+SOURCES = $(shell find $(SRCDIR) -type f -name *.cpp)
+HEADERS = $(shell find $(SRCDIR) -type f -name *.h)
+OBJECTS = $(SOURCES:.cpp=.o)
+CXXFLAGS = -I $(SRCDIR)/core -fopenmp -Wall
+EXEC = ./bin/cariboupt
+
+all: $(EXEC)
+
+%.o: %.c $(HEADERS)
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
+$(EXEC) : $(OBJECTS)
+	$(CXX) $(CXXFLAGS) -o $(EXEC) $(OBJECTS)
+
+.cpp.o:
+	$(CXX) $(CXXFLAGS) $< -o $@
