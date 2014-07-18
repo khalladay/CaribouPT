@@ -7,16 +7,19 @@
 //
 #include <omp.h>
 #include <stdio.h>
-
 #include "Scene.h"
+#include <tr1/memory>
+#include <string>
 #include "Image.h"
 #include "ImageWriter.h"
-#include <string>
+
+using namespace std::tr1;
 
 int main()
 {
-    Image* s = new Image(480,320);
+    shared_ptr<Scene> scene(new Scene());
+    shared_ptr<Image> image(new Image(480,320));
+ 
     ImageWriter writer;
-    writer.writePPM(*s, "test.ppm");
-    delete(s);
+    writer.writePPM(image, "test.ppm");
 }

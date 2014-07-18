@@ -271,6 +271,9 @@
 		A1808CCC1978C3B400296B62 /* Sphere.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
 		A1808CCE1978C53F00296B62 /* ImageWriter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ImageWriter.cpp; sourceTree = "<group>"; };
 		A1808CCF1978C53F00296B62 /* ImageWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageWriter.h; sourceTree = "<group>"; };
+		A1808CD0197938FF00296B62 /* Cube.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cube.h; sourceTree = "<group>"; };
+		A1808CD11979393600296B62 /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
+		A1808CD21979393600296B62 /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -294,6 +297,8 @@
 				A1808CC819788B2E00296B62 /* Camera.cpp */,
 				A1808CC919788B2E00296B62 /* Camera.h */,
 				A1808CCA1978AEA300296B62 /* math_utils.h */,
+				A1808CD11979393600296B62 /* Renderer.cpp */,
+				A1808CD21979393600296B62 /* Renderer.h */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -619,6 +624,7 @@
 				A1808CC31977EEDA00296B62 /* Ray.h */,
 				A1808CCB1978BE8100296B62 /* Intersectable.h */,
 				A1808CCC1978C3B400296B62 /* Sphere.h */,
+				A1808CD0197938FF00296B62 /* Cube.h */,
 			);
 			path = geom;
 			sourceTree = "<group>";

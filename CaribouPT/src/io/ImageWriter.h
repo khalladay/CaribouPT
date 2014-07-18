@@ -11,10 +11,10 @@
 
 #include "Image.h"
 #include <string>
-
+#include <tr1/memory>
 class ImageWriter
 {
 public:
-    void writePPM(const Image& image, const std::string& filepath);
+    void writePPM(const std::tr1::shared_ptr<Image> image, const std::string& filepath);
 };
 #endif /* defined(__CaribouPT__ImageWriter__) */

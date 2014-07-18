@@ -14,6 +14,7 @@
 
 #include "Intersectable.h"
 #include "Sphere.h"
+#include "Camera.h"
 
 class Scene
 {
@@ -26,6 +27,7 @@ public:
 
 private:
     Intersectable* objects;
+    Camera* cam;
 
 };
 
