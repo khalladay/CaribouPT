@@ -266,6 +266,9 @@
 		A1808CC51977F5A900296B62 /* ImageWriter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ImageWriter.cpp; sourceTree = "<group>"; };
 		A1808CC61977F5A900296B62 /* ImageWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageWriter.h; sourceTree = "<group>"; };
 		A1808CC71977F95A00296B62 /* Image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		A1808CC819788B2E00296B62 /* Camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		A1808CC919788B2E00296B62 /* Camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		A1808CCA1978AEA300296B62 /* math_utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = math_utils.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -287,6 +290,9 @@
 				A1808CC51977F5A900296B62 /* ImageWriter.cpp */,
 				A1808CC61977F5A900296B62 /* ImageWriter.h */,
 				A1808CC71977F95A00296B62 /* Image.h */,
+				A1808CC819788B2E00296B62 /* Camera.cpp */,
+				A1808CC919788B2E00296B62 /* Camera.h */,
+				A1808CCA1978AEA300296B62 /* math_utils.h */,
 			);
 			path = core;
 			sourceTree = "<group>";

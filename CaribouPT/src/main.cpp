@@ -10,10 +10,14 @@
 
 #include "Scene.h"
 #include "Image.h"
+#include "ImageWriter.h"
+#include <string>
 
 int main()
 {
     Image* s = new Image(480,320);
-    printf("Hello! %f", s->pixelData[0]);
+    ImageWriter writer;
+    writer.writePPM(*s, "test.ppm");
+    printf("Hello! %f", s->pixels[0]);
     delete(s);
 }

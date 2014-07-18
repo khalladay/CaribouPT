@@ -16,18 +16,18 @@ class Image
 public:
     Image(int w, int h) : width(w), height(h)
     {
-        pixelData = new float[w*h*3];
-        memset(pixelData, 0, sizeof(float)*w*h*3);
+        pixels = new double[w*h*3];
+        memset(pixels, 0, sizeof(double)*w*h*3);
     }
     
     ~Image()
     {
-        delete[] pixelData;
+        delete[] pixels;
     }
     
     int width;
     int height;
-    float* pixelData;
+    double* pixels;
 };
 
 #endif

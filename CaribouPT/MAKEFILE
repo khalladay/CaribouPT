@@ -5,9 +5,9 @@ SRCDIR = ./src
 SOURCES = $(shell find $(SRCDIR) -type f -name *.cpp)
 HEADERS = $(shell find $(SRCDIR) -type f -name *.h) $(shell find ../external/glm -type f -name *.hpp)
 OBJECTS = $(SOURCES:.cpp=.o)
-CXXFLAGS = -I $(SRCDIR)/core -I $(SRCDIR)/geom -I ../external/glm -I /usr/include/c++/4.2.1 -fopenmp -Wall -v
+CXXFLAGS = -I $(SRCDIR)/core -I $(SRCDIR)/geom -I ../external/glm -fopenmp -Wall -v -stdlib=libstdc++
 EXEC = ./bin/cariboupt
-LDFLAGS = -lm
+LDFLAGS = -lm 
 
 all: $(EXEC)
 
