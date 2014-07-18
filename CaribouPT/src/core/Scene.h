@@ -12,6 +12,9 @@
 #include "Ray.h"
 #include "glm.hpp"
 
+#include "Intersectable.h"
+#include "Sphere.h"
+
 class Scene
 {
 public:
@@ -20,6 +23,10 @@ public:
     ~Scene(){}
     
     bool intersect(const Ray& r);
+
+private:
+    Intersectable* objects;
+
 };
 
 #endif /* defined(__CaribouPT__Scene__) */

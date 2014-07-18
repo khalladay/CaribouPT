@@ -18,6 +18,5 @@ int main()
     Image* s = new Image(480,320);
     ImageWriter writer;
     writer.writePPM(*s, "test.ppm");
-    printf("Hello! %f", s->pixels[0]);
     delete(s);
 }
