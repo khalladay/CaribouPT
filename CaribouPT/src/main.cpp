@@ -12,6 +12,7 @@
 #include <string>
 #include "Image.h"
 #include "ImageWriter.h"
+#include "Renderer.h"
 
 using namespace std::tr1;
 
@@ -19,7 +20,10 @@ int main()
 {
     shared_ptr<Scene> scene(new Scene());
     shared_ptr<Image> image(new Image(480,320));
- 
+
+    Renderer r;
+    r.render(scene, image);
+
     ImageWriter writer;
     writer.writePPM(image, "test.ppm");
 }
