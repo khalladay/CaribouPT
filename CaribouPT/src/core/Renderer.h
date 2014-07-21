@@ -11,7 +11,9 @@
 
 #include <tr1/memory>
 #include "Scene.h"
+#include "glm.hpp"
 #include "Image.h"
+#include "Ray.h"
 
 using namespace std::tr1;
 
@@ -22,5 +24,11 @@ public:
     ~Renderer(){}
 
     void render(shared_ptr<Scene> scene, shared_ptr<Image> target);
+    glm::vec3 traceRay(Ray* r);
+    Ray rayForPixel(double ndcX, double ndcY);
+
+private:
+  shared_ptr<Scene> _scene;
+
 };
 #endif /* defined(__CaribouPT__Renderer__) */

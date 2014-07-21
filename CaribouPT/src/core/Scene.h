@@ -19,16 +19,22 @@
 class Scene
 {
 public:
-    
-    Scene(){}
+
+    Scene(Intersectable* sceneObjects) : objects(sceneObjects)
+    {
+      cam = new Camera(glm::vec3(0.0), glm::vec3(1.0), 60.0);
+    }
     ~Scene(){}
-    
+
     bool intersect(const Ray& r);
+    const Camera* cameraPointer()
+    {
+      return cam;
+    }
 
 private:
     Intersectable* objects;
     Camera* cam;
-
 };
 
 #endif /* defined(__CaribouPT__Scene__) */

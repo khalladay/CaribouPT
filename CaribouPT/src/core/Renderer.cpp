@@ -9,25 +9,50 @@
 #include "Renderer.h"
 #include <omp.h>
 #include <stdio.h>
+#include <math.h>
 
 void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target)
 {
-    //parallelize this loop, 1 iteration per thread
-    //division of work done at runtime since image size isn't known
-    #pragma omp parallel for schedule(dynamic, 1) collapse(2)
-    for (int x = 0; x < target->width; x++)
+  _scene = scene;
+  double fov = tan(_scene->cameraPointer()->fov / 2.0);
+
+  //parallelize this loop, 1 iteration per thread
+  //division of work done at runtime since image size isn't known
+  #pragma omp parallel for schedule(dynamic, 1) collapse(2)
+  for (int y = 0; y < target->h; y++)
+  {
+    for (int x = 0; x < target->w; x++)
     {
-        for (int y = 0; y < target->height; y++)
-        {
-            double aspect = float(target->width )/(float)target->height;
-            double ndcX = (x + 0.5) / (float)target->width;
-            double ndcY = (y + 0.5) / (float)target->height;
+      double ssX =  (x + 0.5) / (float)target->w;
+      double ssY =  (y + 0.5) / (float)target->w;
 
-            double ssX = 1.0 - 2.0 * ndcX;
-            double ssY = 1.0 - 2.0 * ndcY;
+      double ndcX = (2 * ssX - 1) * ((float)target->w/(float)target->h) * fov;
+      double ndcY = (1 - 2 * ssY) * fov;
 
-            printf("%f %f \t thread %d\n", ssX, ssY,
-                omp_get_thread_num());
-        }
+      int i = y * target->w + x;
+
+      target->pixels[i*3] = ssX;
+      target->pixels[i*3+1] = ssY;
+      target->pixels[i*3+2] = 0.0;
+
     }
+  }
+}
+
+glm::vec3 Renderer::traceRay(Ray* r)
+{
+
+  return glm::vec3(0.0);
+}
+
+Ray Renderer::rayForPixel(double ndcX, double ndcY)
+{
+  using namespace glm;
+
+  //camera looks down the cam space -z
+  //cam is 1 unit away from the cam plane (at z -1)
+  Ray r;
+
+
+  return r;
 }

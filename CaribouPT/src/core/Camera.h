@@ -14,13 +14,13 @@
 class Camera
 {
 public:
-    glm::vec3 pos;
-    glm::vec3 look;
-    
-    glm::vec3 right;
-    glm::vec3 up;
-    
-    Camera(glm::vec3 position, glm::vec3 direction) : pos(position), look(direction){}
+    glm::mat4 transform;
+
+    double fov;
+
+    Camera(glm::vec3 position, glm::vec3 lookAt, double fieldOfView = 60.0)
+          : fov(fieldOfView){}
+
     ~Camera(){}
 };
 #endif /* defined(__CaribouPT__Camera__) */

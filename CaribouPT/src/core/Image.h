@@ -14,19 +14,19 @@
 class Image
 {
 public:
-    Image(int w, int h) : width(w), height(h)
+    Image(int width, int height) : w(width), h(height)
     {
         pixels = new double[w*h*3];
         memset(pixels, 0, sizeof(double)*w*h*3);
     }
-    
+
     ~Image()
     {
         delete[] pixels;
     }
-    
-    int width;
-    int height;
+
+    int w;
+    int h;
     double* pixels;
 };
 
