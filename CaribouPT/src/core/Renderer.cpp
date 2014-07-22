@@ -27,7 +27,7 @@ void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target)
     for (int x = 0; x < target->w; x++)
     {
       double ssX =  (x + 0.5) / (float)target->w;
-      double ssY =  (y + 0.5) / (float)target->w;
+      double ssY =  (y + 0.5) / (float)target->h;
 
       double ndcX = (2 * ssX - 1) * ((float)target->w/(float)target->h) * fov;
       double ndcY = (1 - 2 * ssY) * fov;

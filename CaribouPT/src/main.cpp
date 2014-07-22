@@ -13,12 +13,19 @@
 #include "Image.h"
 #include "ImageWriter.h"
 #include "Renderer.h"
+#include "Sphere.h"
 
 using namespace std::tr1;
 
 int main()
 {
-    shared_ptr<Scene> scene(new Scene(NULL, 0));
+    Sphere spheres[] =
+    {
+      Sphere(10.0, glm::vec3(0.0f,0.0f,-20.0f) )
+    };
+
+
+    shared_ptr<Scene> scene(new Scene(spheres, 1));
     shared_ptr<Image> image(new Image(480,320));
 
     Renderer r;
