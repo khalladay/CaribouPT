@@ -13,6 +13,7 @@
 
 class Intersectable
 {
+public:
     virtual bool intersect(const Ray* ray) = 0;
 };
 

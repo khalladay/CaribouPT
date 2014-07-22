@@ -10,6 +10,8 @@
 #define __CaribouPT__Camera__
 
 #include "glm.hpp"
+#define GLM_FORCE_RADIANS
+#include "ext.hpp"
 
 class Camera
 {
@@ -17,9 +19,11 @@ public:
     glm::mat4 transform;
 
     double fov;
+    double near;
+    double far;
 
-    Camera(glm::vec3 position, glm::vec3 lookAt, double fieldOfView = 60.0)
-          : fov(fieldOfView){}
+    Camera(glm::vec3 position, glm::vec3 lookAt,
+          double fieldOfView = 60.0, double near = 0.1, double far = 1000.0);
 
     ~Camera(){}
 };

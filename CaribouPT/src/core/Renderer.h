@@ -10,10 +10,11 @@
 #define __CaribouPT__Renderer__
 
 #include <tr1/memory>
-#include "Scene.h"
 #include "glm.hpp"
-#include "Image.h"
-#include "Ray.h"
+
+class Scene;
+class Ray;
+class Image;
 
 using namespace std::tr1;
 

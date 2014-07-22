@@ -9,32 +9,35 @@
 #ifndef __CaribouPT__Scene__
 #define __CaribouPT__Scene__
 
-#include "Ray.h"
 #include "glm.hpp"
-
-#include "Intersectable.h"
-#include "Sphere.h"
 #include "Camera.h"
+
+class Intersectable;
+class Ray;
 
 class Scene
 {
 public:
 
-    Scene(Intersectable* sceneObjects) : objects(sceneObjects)
-    {
-      cam = new Camera(glm::vec3(0.0), glm::vec3(1.0), 60.0);
-    }
-    ~Scene(){}
+  Scene(Intersectable* sceneObjects, int count)
+        : _objects(sceneObjects), _objectCount(count)
+  {
+    _cam = new Camera(glm::vec3(0.0), glm::vec3(0.0,0.0,-1.0), 60.0);
+  }
 
-    bool intersect(const Ray& r);
-    const Camera* cameraPointer()
-    {
-      return cam;
-    }
+  ~Scene(){}
+
+  bool intersect(const Ray* r, double& t, int& id);
+
+  const Camera* cam()
+  {
+    return _cam;
+  }
 
 private:
-    Intersectable* objects;
-    Camera* cam;
+  int _objectCount;
+  Intersectable* _objects;
+  Camera* _cam;
 };
 
 #endif /* defined(__CaribouPT__Scene__) */
