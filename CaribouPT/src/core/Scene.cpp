@@ -19,7 +19,7 @@ bool Scene::intersect(const Ray* r, double& t, int& id)
 
   for (int i = _objectCount-1; i > -1; i--)
   {
-      d = _objects[i].intersect(r);
+      d = _objects[i]->intersect(r);
       if (d > 0 && d < t)
       {
         t = d;

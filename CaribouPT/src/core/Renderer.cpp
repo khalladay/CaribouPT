@@ -63,15 +63,14 @@ Ray Renderer::rayForPixel(double ndcX, double ndcY)
 
   //camera looks down the cam space -z
   //cam is 1 unit away from the cam plane (at z -1)
-  Ray r;
 
   vec4 origin = _scene->cam()->transform * vec4(0.0f, 0.0f, 0.0f, 1.0f);
   vec4 camSpacePixel = _scene->cam()->transform * vec4(ndcX, ndcY, -1.0f, 1.0f);
 
   vec4 dir = normalize(camSpacePixel - origin);
 
-  r.o = vec3(origin.x, origin.y, origin.z);
-  r.d = vec3(dir.x, dir.y, dir.z);
+  Ray r ( vec3(origin.x, origin.y, origin.z), vec3(dir.x, dir.y, dir.z));
+
   r.mint = _scene->cam()->near;
   r.maxt = _scene->cam()->far;
 

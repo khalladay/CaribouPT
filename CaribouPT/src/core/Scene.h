@@ -19,7 +19,7 @@ class Scene
 {
 public:
 
-  Scene(Intersectable* sceneObjects, int count)
+  Scene(Intersectable** sceneObjects, int count)
         : _objects(sceneObjects), _objectCount(count)
   {
     _cam = new Camera(glm::vec3(0.0), glm::vec3(0.0,0.0,-1.0), 60.0);
@@ -36,7 +36,7 @@ public:
 
 private:
   int _objectCount;
-  Intersectable* _objects;
+  Intersectable** _objects;
   Camera* _cam;
 };
 

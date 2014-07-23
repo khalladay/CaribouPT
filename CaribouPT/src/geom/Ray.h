@@ -14,13 +14,31 @@
 class Ray
 {
 public:
-    Ray(glm::vec3 origin = glm::vec3(0.0),
-        glm::vec3 direction = glm::vec3(0.0))
-        : o(origin), d(direction){ mint = 0.0; maxt = 100.0;}
+    Ray(glm::vec3 origin,glm::vec3 direction)
+        {
+          mint = 0.0;
+          maxt = 100.0;
+          o = origin;
+          d = direction;
+            
+            
+          invd = glm::vec3(1.0/d.x, 1.0/d.y, 1.0/d.z);
+          sign[0] = invd.x < 0;
+          sign[1] = invd.y < 0;
+          sign[2] = invd.z < 0;
+        }
+
+
     ~Ray(){}
 
     glm::vec3 o;
     glm::vec3 d;
+
+    //for speeding up collision tests
+    glm::vec3 invd;
+    int sign[3]; //sign is 1 if negative
+
+
     mutable float mint;
     mutable float maxt;
 };

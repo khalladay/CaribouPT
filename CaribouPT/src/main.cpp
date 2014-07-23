@@ -14,18 +14,22 @@
 #include "ImageWriter.h"
 #include "Renderer.h"
 #include "Sphere.h"
+#include "Cube.h"
 
 using namespace std::tr1;
 
 int main()
 {
-    Sphere spheres[] =
-    {
-      Sphere(10.0, glm::vec3(0.0f,0.0f,-20.0f) )
-    };
+    Intersectable** sceneObjects = new Intersectable*[1];
+    sceneObjects[0] = new Cube(glm::vec3(-5.0f, -5.0f, -25.0f),
+                                glm::vec3(5.0f, 5.0f, -35.0f));
+  //  {
+    //  Sphere(10.0, glm::vec3(0.0f,0.0f,-20.0f) )
+    //    new Plane(glm::vec3(0.0f, 0.0f, -20.0f), glm::vec3(0.0f, 0.0f, 1.0f))
+  //  };
 
 
-    shared_ptr<Scene> scene(new Scene(spheres, 1));
+    shared_ptr<Scene> scene(new Scene(sceneObjects, 1));
     shared_ptr<Image> image(new Image(480,320));
 
     Renderer r;
