@@ -21,8 +21,10 @@ using namespace std::tr1;
 int main()
 {
     Intersectable** sceneObjects = new Intersectable*[1];
-    sceneObjects[0] = new Cube(glm::vec3(-5.0f, -5.0f, -25.0f),
-                                glm::vec3(5.0f, 5.0f, -35.0f));
+    //sceneObjects[0] = new Cube(glm::vec3(0.0f, -5.0f, -25.0f),
+      //                          glm::vec3(10.0f, 5.0f, -35.0f));
+    sceneObjects[0] = new Sphere(5.0, glm::vec3(0.0f,0.0f,-15.0f) );
+
   //  {
     //  Sphere(10.0, glm::vec3(0.0f,0.0f,-20.0f) )
     //    new Plane(glm::vec3(0.0f, 0.0f, -20.0f), glm::vec3(0.0f, 0.0f, 1.0f))

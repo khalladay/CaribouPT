@@ -17,7 +17,20 @@
 void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target)
 {
   _scene = scene;
-  double fov = tan(_scene->cam()->fov / 2.0);
+
+  const double deg2rad = 0.0174532925;
+
+  double fov = tan( (_scene->cam()->fov/ 2.0) * deg2rad);
+  double aspect;
+
+  if (target->w >= target->h)
+  {
+    aspect = ((double)target->w/(double)target->h);
+  }
+  else
+  {
+    aspect = ((double)target->h/(double)target->w);  
+  }
 
   //parallelize this loop, 1 iteration per thread
   //division of work done at runtime since image size isn't known
@@ -26,15 +39,15 @@ void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target)
   {
     for (int x = 0; x < target->w; x++)
     {
-      double ssX =  (x + 0.5) / (float)target->w;
-      double ssY =  (y + 0.5) / (float)target->h;
+      double pixX =  (x + 0.5);
+      double pixY =  (y + 0.5);
 
-      double ndcX = (2 * ssX - 1) * ((float)target->w/(float)target->h) * fov;
-      double ndcY = (1 - 2 * ssY) * fov;
+      pixX = (2 * pixX / (double)target->w - 1) * aspect * fov;
+      pixY = (1 - 2 * pixY / (double)target->h) * fov;
 
       int i = y * target->w + x;
 
-      Ray r = rayForPixel(ndcX, ndcY);
+      Ray r = rayForPixel(pixX, pixY);
       glm::vec3 col = traceRay(&r);
 
       target->pixels[i*3] = col.x;
