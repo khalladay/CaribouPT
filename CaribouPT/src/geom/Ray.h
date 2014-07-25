@@ -33,12 +33,12 @@ public:
 
     glm::vec3 o;
     glm::vec3 d;
-
+    
     //for speeding up collision tests
     glm::vec3 invd;
     int sign[3]; //sign is 1 if negative
 
-
+    float t;
     mutable float mint;
     mutable float maxt;
 };

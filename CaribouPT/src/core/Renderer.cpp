@@ -13,6 +13,7 @@
 #include "Scene.h"
 #include "Image.h"
 #include "Ray.h"
+#include "Intersection.h"
 
 void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target)
 {
@@ -29,7 +30,7 @@ void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target)
   }
   else
   {
-    aspect = ((double)target->h/(double)target->w);  
+    aspect = ((double)target->h/(double)target->w);
   }
 
   //parallelize this loop, 1 iteration per thread
@@ -60,14 +61,16 @@ void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target)
 glm::vec3 Renderer::traceRay(Ray* r)
 {
   double t = r->maxt;
-  int id = -1;
 
-  if (_scene->intersect(r, t, id))
+  Intersection isect;
+
+  if (!_scene->intersect(r, t, &isect))
   {
-    return glm::vec3(1.0);
+    return glm::vec3(0.0);
   }
 
-  return glm::vec3(0.0);
+  printf("theta: %f\n", isect.theta);
+  return glm::vec3(1.0);
 }
 
 Ray Renderer::rayForPixel(double ndcX, double ndcY)

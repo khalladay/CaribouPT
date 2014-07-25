@@ -274,12 +274,16 @@
 		A1808CD0197938FF00296B62 /* Cube.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cube.h; sourceTree = "<group>"; };
 		A1808CD11979393600296B62 /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
 		A1808CD21979393600296B62 /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
+		A1CCEECF198121FF00EF341C /* BDF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDF.h; sourceTree = "<group>"; };
+		A1CCEED01981E1EF00EF341C /* LambertBRDF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LambertBRDF.h; sourceTree = "<group>"; };
+		A1CCEED21981FF5900EF341C /* Intersection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Intersection.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		A12FCBF3197692ED00E3D7B5 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A1CCEECE198121E300EF341C /* materials */,
 				A1808CCD1978C4F600296B62 /* io */,
 				A1808CC11977EED500296B62 /* geom */,
 				A12FCBF51976968000E3D7B5 /* core */,
@@ -625,6 +629,7 @@
 				A1808CCB1978BE8100296B62 /* Intersectable.h */,
 				A1808CCC1978C3B400296B62 /* Sphere.h */,
 				A1808CD0197938FF00296B62 /* Cube.h */,
+				A1CCEED21981FF5900EF341C /* Intersection.h */,
 			);
 			path = geom;
 			sourceTree = "<group>";
@@ -636,6 +641,15 @@
 				A1808CCF1978C53F00296B62 /* ImageWriter.h */,
 			);
 			path = io;
+			sourceTree = "<group>";
+		};
+		A1CCEECE198121E300EF341C /* materials */ = {
+			isa = PBXGroup;
+			children = (
+				A1CCEECF198121FF00EF341C /* BDF.h */,
+				A1CCEED01981E1EF00EF341C /* LambertBRDF.h */,
+			);
+			path = materials;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

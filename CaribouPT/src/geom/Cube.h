@@ -14,10 +14,12 @@
 class Cube : public Intersectable
 {
 public:
+  Lambert brdf;
   glm::vec3 bounds[2];
 
-  Cube(glm::vec3 _min, glm::vec3 _max) : Intersectable()
+  Cube(glm::vec3 _min, glm::vec3 _max, glm::vec3 color) : Intersectable()
   {
+    brdf.R = color;
     bounds[0] = _min;
     bounds[1] = _max;
   }
@@ -72,6 +74,8 @@ public:
 
     if ( (tmin < ray->maxt) && (tmax > ray->mint) )
     {
+      //todo: make this less awful
+      ray->t = tmin;
       return true;
     }
 

@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
             endingLineNumber = "15"
-            landmarkName = "Scene::intersect(const Ray* r, double&amp; t, int&amp; id)"
+            landmarkName = "Scene::intersect(const Ray* r, double&amp; t, Intersection* isectData)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -47,7 +47,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "17"
             endingLineNumber = "17"
-            landmarkName = "Scene::intersect(const Ray* r, double&amp; t, int&amp; id)"
+            landmarkName = "Scene::intersect(const Ray* r, double&amp; t, Intersection* isectData)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -63,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
             endingLineNumber = "18"
-            landmarkName = "Scene::intersect(const Ray* r, double&amp; t, int&amp; id)"
+            landmarkName = "Scene::intersect(const Ray* r, double&amp; t, Intersection* isectData)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -79,7 +79,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
             endingLineNumber = "22"
-            landmarkName = "Scene::intersect(const Ray* r, double&amp; t, int&amp; id)"
+            landmarkName = "Scene::intersect(const Ray* r, double&amp; t, Intersection* isectData)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -95,7 +95,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
             endingLineNumber = "23"
-            landmarkName = "Scene::intersect(const Ray* r, double&amp; t, int&amp; id)"
+            landmarkName = "Scene::intersect(const Ray* r, double&amp; t, Intersection* isectData)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -122,12 +122,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CaribouPT/src/core/Scene.h"
-            timestampString = "427722068.180927"
+            timestampString = "427950567.355923"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "Scene(Intersectable* sceneObjects, int count)"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "Scene(Intersectable** sceneObjects, int count)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -138,12 +138,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CaribouPT/src/geom/Sphere.h"
-            timestampString = "427722139.603501"
+            timestampString = "427950567.355923"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "intersect(const Ray* ray)"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "normalAtPoint(const glm::vec3 point)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -154,12 +154,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CaribouPT/src/geom/Sphere.h"
-            timestampString = "427722412.020307"
+            timestampString = "427950567.355923"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "intersect(const Ray* ray)"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "normalAtPoint(const glm::vec3 point)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -175,7 +175,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
             endingLineNumber = "19"
-            landmarkName = "Scene::intersect(const Ray* r, double&amp; t, int&amp; id)"
+            landmarkName = "Scene::intersect(const Ray* r, double&amp; t, Intersection* isectData)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

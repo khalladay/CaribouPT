@@ -11,6 +11,7 @@
 
 #include "glm.hpp"
 #include "Camera.h"
+#include "Intersection.h"
 
 class Intersectable;
 class Ray;
@@ -27,7 +28,7 @@ public:
 
   ~Scene(){}
 
-  bool intersect(const Ray* r, double& t, int& id);
+  bool intersect(const Ray* r, double& t, Intersection* isectData);
 
   const Camera* cam()
   {

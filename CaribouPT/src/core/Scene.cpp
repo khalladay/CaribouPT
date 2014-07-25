@@ -9,7 +9,7 @@
 #include "Scene.h"
 #include "Intersectable.h"
 
-bool Scene::intersect(const Ray* r, double& t, int& id)
+bool Scene::intersect(const Ray* r, double& t, Intersection* isectData)
 {
 
   if (_objectCount == 0) return false;
@@ -19,11 +19,11 @@ bool Scene::intersect(const Ray* r, double& t, int& id)
 
   for (int i = _objectCount-1; i > -1; i--)
   {
-      d = _objects[i]->intersect(r);
+      d = _objects[i]->intersect(r, isectData);
       if (d > 0 && d < t)
       {
         t = d;
-        id = i;
+        isectData->hitObj = _objects[i];
       }
   }
 
