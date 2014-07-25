@@ -69,6 +69,11 @@ glm::vec3 Renderer::traceRay(Ray* r)
       glm::vec3(0.0);
   }
 
+  
+
+  // BRDF * Li * cos(theta)
+  // theta = cosine of angle between Li and N
+
   return glm::vec3(isect.normal.x, isect.normal.y, isect.normal.z);
 }
 

@@ -277,6 +277,8 @@
 		A1CCEECF198121FF00EF341C /* BDF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDF.h; sourceTree = "<group>"; };
 		A1CCEED01981E1EF00EF341C /* LambertBRDF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LambertBRDF.h; sourceTree = "<group>"; };
 		A1CCEED21981FF5900EF341C /* Intersection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Intersection.h; sourceTree = "<group>"; };
+		A1CCEED5198281AC00EF341C /* Material.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Material.cpp; sourceTree = "<group>"; };
+		A1CCEED6198281AC00EF341C /* Material.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Material.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -648,6 +650,8 @@
 			children = (
 				A1CCEECF198121FF00EF341C /* BDF.h */,
 				A1CCEED01981E1EF00EF341C /* LambertBRDF.h */,
+				A1CCEED5198281AC00EF341C /* Material.cpp */,
+				A1CCEED6198281AC00EF341C /* Material.h */,
 			);
 			path = materials;
 			sourceTree = "<group>";

@@ -11,6 +11,7 @@
 
 #include "Ray.h"
 #include "Intersection.h"
+#include "BDF.h"
 
 class Intersectable
 {

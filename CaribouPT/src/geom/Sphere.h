@@ -23,7 +23,7 @@ public:
 
     virtual glm::vec3 normalAtPoint(const glm::vec3 point)
     {
-        return glm::normalize( glm::abs(pos - (point)));
+        return glm::normalize(pos - (point));
     }
 
     virtual bool intersect(const Ray* ray)
