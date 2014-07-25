@@ -16,24 +16,17 @@
 class Sphere: public Intersectable
 {
 public:
-    LambertBRDF brdf;
-    
+
     Sphere(double radius, glm::vec3 position, glm::vec3 color) : rad(radius), rad2(radius*radius), pos(position), Intersectable()
     {
-        brdf.R = color;
-    }
-    
-    BDF* getBRDF()
-    {
-        return &brdf;
-    }
-    
-    virtual glm::vec3 normalAtPoint(const glm::vec3 point)
-    {
-        return glm::dot(ray->d,glm::normalize( pos - (point));
     }
 
-    virtual bool intersect(const Ray* ray, Intersection* isectData)
+    virtual glm::vec3 normalAtPoint(const glm::vec3 point)
+    {
+        return glm::normalize( glm::abs(pos - (point)));
+    }
+
+    virtual bool intersect(const Ray* ray)
     {
         using namespace glm;
         vec3 L = pos - ray->o;
@@ -49,7 +42,7 @@ public:
 
         if (t0 > ray->maxt) return false;
         ray->t = t0;
-        
+
         return true;
     }
 

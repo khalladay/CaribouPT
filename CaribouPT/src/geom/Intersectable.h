@@ -15,7 +15,7 @@
 class Intersectable
 {
 public:
-    virtual bool intersect(const Ray* ray, Intersection* isectData) = 0;
+    virtual bool intersect(const Ray* ray) = 0;
     virtual glm::vec3 normalAtPoint(const glm::vec3 point) = 0;
 };
 

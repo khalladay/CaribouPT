@@ -23,7 +23,7 @@ public:
   Scene(Intersectable** sceneObjects, int count)
         : _objects(sceneObjects), _objectCount(count)
   {
-    _cam = new Camera(glm::vec3(0.0), glm::vec3(0.0,0.0,-15.0), 60.0);
+    _cam = new Camera(glm::vec3(0.0,5.0,0.0), glm::vec3(0.0,0.0,-15.0), 60.0);
   }
 
   ~Scene(){}

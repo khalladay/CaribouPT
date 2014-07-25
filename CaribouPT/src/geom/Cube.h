@@ -14,17 +14,36 @@
 class Cube : public Intersectable
 {
 public:
-  Lambert brdf;
   glm::vec3 bounds[2];
 
   Cube(glm::vec3 _min, glm::vec3 _max, glm::vec3 color) : Intersectable()
   {
-    brdf.R = color;
     bounds[0] = _min;
     bounds[1] = _max;
   }
 
   ~Cube(){}
+
+  //this is probably wrong, so sue me, it's late and I'm out of coffee
+  virtual glm::vec3 normalAtPoint(const glm::vec3 point)
+  {
+      glm::vec3 center = (bounds[0] + bounds[1])/2.0f;
+      glm::vec3 delta = point - center;
+      glm::vec3 absDelta = glm::abs(delta);
+
+      if (absDelta.x > absDelta.y && absDelta.x > absDelta.z)
+      {
+          return glm::normalize(glm::vec3(absDelta.x, 0.0f, 0.0f));
+      }
+      else if (absDelta.y > absDelta.z)
+      {
+          return glm::normalize(glm::vec3(0.0f, absDelta.y, 0.0f));
+      }
+      else
+      {
+          return glm::normalize(glm::vec3(0.0f, 0.0f, absDelta.z));
+      }
+  }
 
   virtual bool intersect(const Ray* ray)
   {

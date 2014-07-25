@@ -19,9 +19,9 @@ public:
           mint = 0.0;
           maxt = 100.0;
           o = origin;
-          d = direction;
-            
-            
+          d = glm::normalize(direction);
+
+
           invd = glm::vec3(1.0/d.x, 1.0/d.y, 1.0/d.z);
           sign[0] = invd.x < 0;
           sign[1] = invd.y < 0;
@@ -33,12 +33,12 @@ public:
 
     glm::vec3 o;
     glm::vec3 d;
-    
+
     //for speeding up collision tests
     glm::vec3 invd;
     int sign[3]; //sign is 1 if negative
 
-    float t;
+    mutable float t;
     mutable float mint;
     mutable float maxt;
 };

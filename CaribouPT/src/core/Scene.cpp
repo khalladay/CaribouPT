@@ -19,10 +19,11 @@ bool Scene::intersect(const Ray* r, double& t, Intersection* isectData)
 
   for (int i = _objectCount-1; i > -1; i--)
   {
-      d = _objects[i]->intersect(r, isectData);
+      d = _objects[i]->intersect(r);
       if (d > 0 && d < t)
       {
         t = d;
+        isectData->normal = _objects[i]->normalAtPoint(r->o + r->d * r->t);
         isectData->hitObj = _objects[i];
       }
   }

@@ -14,7 +14,7 @@ class Intersectable;
 struct Intersection
 {
 public:
-    float theta;
+    glm::vec3 normal;
     Intersectable* hitObj;
 };
 

@@ -16,6 +16,10 @@ class BDF
 public:
     virtual glm::vec3 eval(const glm::vec3& w0, const glm::vec3& wi) = 0;
     virtual glm::vec3 sample(const glm::vec3& w0, const glm::vec3& wi) = 0;
+    
+    glm::vec3 worldToLocal(const glm::vec3& v);
+    glm::vec3 localToWorld(const glm::vec3& v);
+    
     ~BDF(){}
 
 };
