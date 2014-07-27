@@ -24,24 +24,24 @@ public:
 
   ~Cube(){}
 
-  //this is probably wrong, so sue me, it's late and I'm out of coffee
   virtual glm::vec3 normalAtPoint(const glm::vec3 point)
-  {
+  {   
       glm::vec3 center = (bounds[0] + bounds[1])/2.0f;
+      glm::vec3 extents = (bounds[1] - bounds[0])/2.0f;
       glm::vec3 delta = point - center;
-      glm::vec3 absDelta = glm::abs(delta);
-
+      glm::vec3 absDelta = glm::abs(delta)/extents;
+      
       if (absDelta.x > absDelta.y && absDelta.x > absDelta.z)
       {
-          return glm::normalize(glm::vec3(absDelta.x, 0.0f, 0.0f));
+          return glm::normalize(glm::vec3(delta.x, 0.0f, 0.0f));
       }
       else if (absDelta.y > absDelta.z)
       {
-          return glm::normalize(glm::vec3(0.0f, absDelta.y, 0.0f));
+          return glm::normalize(glm::vec3(0.0f, delta.y, 0.0f));
       }
       else
       {
-          return glm::normalize(glm::vec3(0.0f, 0.0f, absDelta.z));
+          return glm::normalize(glm::vec3(0.0f, 0.0f, delta.z));
       }
   }
 

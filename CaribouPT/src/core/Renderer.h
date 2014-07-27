@@ -11,6 +11,7 @@
 
 #include <tr1/memory>
 #include "glm.hpp"
+#include <tr1/random>
 
 class Scene;
 class Ray;
@@ -21,15 +22,16 @@ using namespace std::tr1;
 class Renderer
 {
 public:
-    Renderer(){}
+    Renderer();
     ~Renderer(){}
 
     void render(shared_ptr<Scene> scene, shared_ptr<Image> target);
-    glm::vec3 traceRay(Ray* r);
+    glm::vec3 traceRay(Ray* r, int depth, uniform_real<float>& rDist);
     Ray rayForPixel(double ndcX, double ndcY);
 
 private:
-  shared_ptr<Scene> _scene;
+    shared_ptr<Scene> _scene;
 
+    ranlux64_base_01 randGen;
 };
 #endif /* defined(__CaribouPT__Renderer__) */

@@ -9,7 +9,7 @@
 #ifndef CaribouPT_Intersection_h
 #define CaribouPT_Intersection_h
 #include <tr1/memory>
-
+#include "Primitive.h"
 class Primitive;
 
 struct Intersection

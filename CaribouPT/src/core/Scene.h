@@ -24,12 +24,7 @@ class Scene
 {
 public:
 
-    Scene(std::vector<shared_ptr<Primitive> > sceneObjects)
-        : _objects(sceneObjects)
-    {
-        _cam = new Camera(glm::vec3(0.0,5.0,0.0), glm::vec3(0.0,0.0,-15.0), 60.0);
-    }
-
+    Scene(std::vector<shared_ptr<Primitive> > sceneObjects);
     ~Scene(){}
 
     bool intersect(const Ray* r, double& t, Intersection* isectData);

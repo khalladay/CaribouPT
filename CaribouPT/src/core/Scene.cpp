@@ -10,6 +10,12 @@
 #include "Intersectable.h"
 #include "Primitive.h"
 
+Scene::Scene(std::vector<shared_ptr<Primitive> > sceneObjects)
+: _objects(sceneObjects)
+{
+    _cam = new Camera(glm::vec3(0.0,0.0,10.0), glm::vec3(0.0,0.0,-15.0), 60.0);
+}
+
 bool Scene::intersect(const Ray* r, double& t, Intersection* isectData)
 {
     if (_objects.size() == 0) return false;

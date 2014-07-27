@@ -24,7 +24,8 @@ public:
     
     virtual glm::vec3 eval(const glm::vec3& w0, const glm::vec3& wi)
     {
-        return R * INV_PI;
+        glm::vec3 r = R * INV_PI;
+        return r;
     }
 
 private:

@@ -11,8 +11,8 @@
 
 #include <math.h>
 
-inline double clampZeroOne(double x){ return x<0 ? 0 : x>1 ? 1 : x; }
-inline int toInt(double x){ return int(pow(clampZeroOne(x),1/2.2)*255+.5); }
+inline float clampZeroOne(float x){ return x<0 ? 0 : x>1 ? 1 : x; }
+inline int toInt(float x){ return int(pow(clampZeroOne(x),1/2.2)*255+.5); }
 
 
 #endif
