@@ -16,21 +16,25 @@
 
 #include "BDF.h"
 #include <tr1/memory>
+#include "glm.hpp"
 
 using namespace std::tr1;
 
 class Material
 {
 public:
-    Material(shared_ptr<BDF> brdf) : _brdf(brdf){}
+    Material(shared_ptr<BDF> brdf, glm::vec3 eCol) : _brdf(brdf), _eCol(eCol){}
 
     const shared_ptr<BDF> getBRDF()
     {
         return _brdf;
     }
 
+    static shared_ptr<Material> makeLambert(glm::vec3 color, glm::vec3 eColor);
+
 private:
     shared_ptr<BDF> _brdf;
+    glm::vec3 _eCol;
 
 };
 #endif /* defined(__CaribouPT__Material__) */

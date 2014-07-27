@@ -16,7 +16,7 @@ class Cube : public Intersectable
 public:
   glm::vec3 bounds[2];
 
-  Cube(glm::vec3 _min, glm::vec3 _max, glm::vec3 color) : Intersectable()
+  Cube(glm::vec3 _min, glm::vec3 _max) : Intersectable()
   {
     bounds[0] = _min;
     bounds[1] = _max;

@@ -279,6 +279,8 @@
 		A1CCEED21981FF5900EF341C /* Intersection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Intersection.h; sourceTree = "<group>"; };
 		A1CCEED5198281AC00EF341C /* Material.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Material.cpp; sourceTree = "<group>"; };
 		A1CCEED6198281AC00EF341C /* Material.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Material.h; sourceTree = "<group>"; };
+		A1CCEED719846C3600EF341C /* Primitive.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Primitive.cpp; sourceTree = "<group>"; };
+		A1CCEED819846C3600EF341C /* Primitive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Primitive.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -305,6 +307,8 @@
 				A1808CCA1978AEA300296B62 /* math_utils.h */,
 				A1808CD11979393600296B62 /* Renderer.cpp */,
 				A1808CD21979393600296B62 /* Renderer.h */,
+				A1CCEED719846C3600EF341C /* Primitive.cpp */,
+				A1CCEED819846C3600EF341C /* Primitive.h */,
 			);
 			path = core;
 			sourceTree = "<group>";

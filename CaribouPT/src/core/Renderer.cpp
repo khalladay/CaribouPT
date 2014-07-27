@@ -66,15 +66,13 @@ glm::vec3 Renderer::traceRay(Ray* r)
 
   if (!_scene->intersect(r, t, &isect))
   {
-      glm::vec3(0.0);
+      return glm::vec3(0.0);
   }
-
-  
 
   // BRDF * Li * cos(theta)
   // theta = cosine of angle between Li and N
 
-  return glm::vec3(isect.normal.x, isect.normal.y, isect.normal.z);
+  return glm::vec3(1.0);
 }
 
 Ray Renderer::rayForPixel(double ndcX, double ndcY)

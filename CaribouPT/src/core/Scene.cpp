@@ -8,25 +8,27 @@
 
 #include "Scene.h"
 #include "Intersectable.h"
+#include "Primitive.h"
 
 bool Scene::intersect(const Ray* r, double& t, Intersection* isectData)
 {
+    if (_objects.size() == 0) return false;
 
-  if (_objectCount == 0) return false;
+    double d;
+    double inf = t = 1e20;
 
-  double d;
-  double inf = t = 1e20;
+    for (int i = _objects.size()-1; i > -1; i--)
+    {
+        if (_objects[i]->_shape->intersect(r))
+        {
+            if (r->t > 0 && r->t < t)
+            {
+                t = r->t;
+                isectData->normal = _objects[i]->_shape->normalAtPoint(r->o + r->d * r->t);
+                isectData->hitObj = _objects[i];
+            }
+        }
+    }
 
-  for (int i = _objectCount-1; i > -1; i--)
-  {
-      d = _objects[i]->intersect(r);
-      if (d > 0 && d < t)
-      {
-        t = d;
-        isectData->normal = _objects[i]->normalAtPoint(r->o + r->d * r->t);
-        isectData->hitObj = _objects[i];
-      }
-  }
-
-  return t < inf;
+    return t < inf;
 }

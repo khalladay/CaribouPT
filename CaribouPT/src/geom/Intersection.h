@@ -8,14 +8,15 @@
 
 #ifndef CaribouPT_Intersection_h
 #define CaribouPT_Intersection_h
+#include <tr1/memory>
 
-class Intersectable;
+class Primitive;
 
 struct Intersection
 {
 public:
     glm::vec3 normal;
-    Intersectable* hitObj;
+    std::tr1::shared_ptr<Primitive> hitObj;
 };
 
 #endif

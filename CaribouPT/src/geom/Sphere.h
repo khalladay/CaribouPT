@@ -17,7 +17,7 @@ class Sphere: public Intersectable
 {
 public:
 
-    Sphere(double radius, glm::vec3 position, glm::vec3 color) : rad(radius), rad2(radius*radius), pos(position), Intersectable()
+    Sphere(double radius, glm::vec3 position) : rad(radius), rad2(radius*radius), pos(position), Intersectable()
     {
     }
 
