@@ -16,7 +16,7 @@ class LambertBRDF : public BDF
 {
 public:
     glm::vec3 R;
-    
+
     LambertBRDF(){}
     LambertBRDF(glm::vec3 reflectCol) : R(reflectCol){}
     ~LambertBRDF(){}
@@ -24,7 +24,7 @@ public:
     
     virtual glm::vec3 eval(const glm::vec3& w0, const glm::vec3& wi)
     {
-        glm::vec3 r = R * INV_PI;
+        glm::vec3 r = R;
         return r;
     }
 

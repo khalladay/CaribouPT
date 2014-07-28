@@ -21,7 +21,7 @@ Renderer::Renderer()
     randGen.seed((unsigned int)time(NULL));
 }
 
-void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target)
+void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target, int samplesPerPixel)
 {
     _scene = scene;
     uniform_real<float> randDist(0.0,1.0);
@@ -50,7 +50,7 @@ void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target)
             glm::vec3 col = glm::vec3(0.0);
             int i = y * target->w + x;
 
-            for (int s = 0; s < 32; s++)
+            for (int s = 0; s < samplesPerPixel; s++)
             {
                 double pixX =  (x + 0.5);
                 double pixY =  (y + 0.5);
@@ -60,12 +60,12 @@ void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target)
 
 
                 Ray r = rayForPixel(pixX, pixY);
-                col = col + (traceRay(&r, 1, randDist) * (1.0f/32.0f));
+                col = col + (traceRay(&r, 1, randDist) * (1.0f/(float)samplesPerPixel));
             }
 
-            target->pixels[i*3] = clampZeroOne(col.x);
-            target->pixels[i*3+1] = clampZeroOne(col.y);
-            target->pixels[i*3+2] = clampZeroOne(col.z);
+            target->pixels[i*3] = (col.x);
+            target->pixels[i*3+1] = (col.y);
+            target->pixels[i*3+2] = (col.z);
         }
     }
 }
@@ -80,10 +80,10 @@ glm::vec3 Renderer::traceRay(Ray* r, int depth, uniform_real<float>& rDist)
 
     if (!_scene->intersect(r, t, &isect))
     {
-        return glm::vec3(0.0);
+        return glm::vec3(0.0,0.5,0.0);
     }
     
-    if (depth > 5)
+    if (depth > 1)
     {
         return isect.hitObj->_mat->_eCol;
     }
@@ -91,26 +91,32 @@ glm::vec3 Renderer::traceRay(Ray* r, int depth, uniform_real<float>& rDist)
     vec3 em = isect.hitObj->_mat->_eCol;
     vec3 hitPoint = r->o + r->d * r->t;
     vec3 normal =isect.hitObj->_shape->normalAtPoint(hitPoint);
-    vec3 nl = glm::dot(normal, r->d) < 0 ? normal : normal * -1.0f;
+   // vec3 nl = glm::dot(normal, r->d) < 0 ? normal : normal * -1.0f;
     
-    float cosTheta = glm::dot(nl, r->d);
+    float cosTheta = glm::dot(normal, r->d);
     
     float r1=2*M_PI*rDist(randGen);
     float r2=rDist(randGen);
     float r2s=glm::sqrt(r2);
     
-    vec3 w = nl;
-    vec3 u = normalize( cross (( abs(w.x) > 0.1 ? vec3(0.0,1.0,0.0) : vec3(1.0, 0.0, 0.0)),w));
+    vec3 w = normal;
+    vec3 u = (fabs(w.x) > 0.1) ? vec3(0.0,1.0,0.0) : vec3(1.0, 0.0, 0.0);
+    u = normalize( cross ( u, w));
     vec3 v = cross(w,u);
+    
+    //todo: deal with signed zeros in a more useful way
+    if (v.x == 0)v.x*=v.x;
+    if (v.y == 0)v.y*=v.y;
+    if (v.y == 0)v.z*=v.z;
 
     vec3 brdf = isect.hitObj->_mat->getBRDF()->eval(r->d, r->d);
 
     r->o = hitPoint;
-    r->d = normalize(u * cos(r1)*r2s + v*sin(r1)*r2s + w * glm::sqrt(1-r2));
+    r->setDirection(normalize(u * cos(r1)*r2s + v*sin(r1)*r2s + w * glm::sqrt(1-r2)));
     
     //successive calls to traceRay provide the Li term for previous
     //lighting calculations
-    return em + (brdf * traceRay(r, ++depth, rDist));
+    return em + ( glm::vec3(1.0) * traceRay(r, ++depth, rDist) );
 }
 
 Ray Renderer::rayForPixel(double ndcX, double ndcY)

@@ -28,7 +28,14 @@ public:
           sign[2] = invd.z < 0;
         }
 
-
+    void setDirection(glm::vec3 direction)
+    {
+        d = glm::normalize(direction);
+        invd = glm::vec3(1.0/d.x, 1.0/d.y, 1.0/d.z);
+        sign[0] = invd.x < 0;
+        sign[1] = invd.y < 0;
+        sign[2] = invd.z < 0;
+    }
     ~Ray(){}
 
     glm::vec3 o;

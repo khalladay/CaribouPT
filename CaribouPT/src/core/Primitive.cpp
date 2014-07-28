@@ -14,7 +14,6 @@
 shared_ptr<Primitive> Primitive::makeLambertSphere(double radius, glm::vec3 position, glm::vec3 rColor, glm::vec3 eColor)
 {
     shared_ptr<Sphere> shape(new Sphere(radius, position));
-    printf("%f %f %f\n", rColor.x, rColor.y, rColor.z);
     shared_ptr<Primitive> prim(new Primitive(shape, Material::makeLambert(rColor, eColor)));
     return prim;
 }

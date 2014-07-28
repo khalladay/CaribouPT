@@ -25,7 +25,7 @@ public:
   ~Cube(){}
 
   virtual glm::vec3 normalAtPoint(const glm::vec3 point)
-  {   
+  {
       glm::vec3 center = (bounds[0] + bounds[1])/2.0f;
       glm::vec3 extents = (bounds[1] - bounds[0])/2.0f;
       glm::vec3 delta = point - center;

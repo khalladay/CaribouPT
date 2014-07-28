@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CaribouPT/src/geom/Cube.h"
-            timestampString = "428174004.313181"
+            timestampString = "428242447.772195"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CaribouPT/src/geom/Cube.h"
-            timestampString = "428174004.313181"
+            timestampString = "428242447.772195"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CaribouPT/src/geom/Cube.h"
-            timestampString = "428174004.313181"
+            timestampString = "428242447.772195"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
@@ -186,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CaribouPT/src/geom/Cube.h"
-            timestampString = "428174004.313181"
+            timestampString = "428242447.772195"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "75"
@@ -202,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CaribouPT/src/geom/Cube.h"
-            timestampString = "428174004.313181"
+            timestampString = "428242447.772195"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "78"
@@ -250,7 +250,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CaribouPT/src/geom/Cube.h"
-            timestampString = "428174004.313181"
+            timestampString = "428242447.772195"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "76"
@@ -292,55 +292,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CaribouPT/src/core/Renderer.cpp"
-            timestampString = "428175863.528254"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CaribouPT/src/core/Primitive.cpp"
-            timestampString = "428168608.163279"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "Primitive::makeLambertSphere(double radius, glm::vec3 position, glm::vec3 rColor, glm::vec3 eColor)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CaribouPT/src/core/Primitive.cpp"
-            timestampString = "428168608.163279"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "Primitive::makeLambertCube(glm::vec3 min, glm::vec3 max, glm::vec3 rColor, glm::vec3 eColor)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CaribouPT/src/core/Renderer.cpp"
-            timestampString = "428175863.528254"
+            timestampString = "428242853.825808"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "113"
@@ -355,13 +307,45 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CaribouPT/src/io/ImageWriter.cpp"
-            timestampString = "428170998.577879"
+            filePath = "CaribouPT/src/core/Primitive.cpp"
+            timestampString = "428176760.244203"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "ImageWriter::writePPM(const std::tr1::shared_ptr&lt;Image&gt; image, const std::string&amp; filepath)"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "Primitive::makeLambertSphere(double radius, glm::vec3 position, glm::vec3 rColor, glm::vec3 eColor)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CaribouPT/src/core/Primitive.cpp"
+            timestampString = "428176760.244203"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "Primitive::makeLambertCube(glm::vec3 min, glm::vec3 max, glm::vec3 rColor, glm::vec3 eColor)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CaribouPT/src/core/Renderer.cpp"
+            timestampString = "428242853.825808"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -372,27 +356,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CaribouPT/src/io/ImageWriter.cpp"
-            timestampString = "428171021.319345"
+            timestampString = "428178625.185141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "ImageWriter::writePPM(const std::tr1::shared_ptr&lt;Image&gt; image, const std::string&amp; filepath)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CaribouPT/src/io/ImageWriter.cpp"
-            timestampString = "428171043.300063"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "ImageWriter::writePPM(const std::tr1::shared_ptr&lt;Image&gt; image, const std::string&amp; filepath)"
             landmarkType = "5">
          </BreakpointContent>
@@ -409,7 +377,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
             endingLineNumber = "67"
-            landmarkName = "Renderer::render(shared_ptr&lt;Scene&gt; scene, shared_ptr&lt;Image&gt; target)"
+            landmarkName = "Renderer::render(shared_ptr&lt;Scene&gt; scene, shared_ptr&lt;Image&gt; target, int samplesPerPixel)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -420,12 +388,140 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CaribouPT/src/core/Renderer.cpp"
-            timestampString = "428175863.528254"
+            timestampString = "428177300.624752"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"
             endingLineNumber = "100"
             landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CaribouPT/src/core/Renderer.cpp"
+            timestampString = "428177063.56079"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CaribouPT/src/core/Renderer.cpp"
+            timestampString = "428179355.926164"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "Renderer::render(shared_ptr&lt;Scene&gt; scene, shared_ptr&lt;Image&gt; target, int samplesPerPixel)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CaribouPT/src/core/math_utils.h"
+            timestampString = "428179695.923645"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "toInt(float x)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CaribouPT/src/io/ImageWriter.cpp"
+            timestampString = "428179724.708184"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "ImageWriter::writePPM(const std::tr1::shared_ptr&lt;Image&gt; image, const std::string&amp; filepath)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CaribouPT/src/geom/Cube.h"
+            timestampString = "428242447.772195"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "normalAtPoint(const glm::vec3 point)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CaribouPT/src/geom/Cube.h"
+            timestampString = "428242447.772195"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "normalAtPoint(const glm::vec3 point)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CaribouPT/src/geom/Cube.h"
+            timestampString = "428242447.772195"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "normalAtPoint(const glm::vec3 point)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CaribouPT/src/geom/Cube.h"
+            timestampString = "428242447.772195"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "normalAtPoint(const glm::vec3 point)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

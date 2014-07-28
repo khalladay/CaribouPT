@@ -21,35 +21,32 @@ using namespace std::tr1;
 int main()
 {
     std::vector<shared_ptr<Primitive> > sceneObjects;
-   // sceneObjects.push_back(Primitive::makeLambertSphere(3.0, glm::vec3(10.0f,0.0f,-15.0f), glm::vec3(1.0,1.0,1.0),glm::vec3(0.2,0.2,0.2)));
-    sceneObjects.push_back(Primitive::makeLambertSphere(3.0, glm::vec3(-10.0f,0.0f,-15.0f), glm::vec3(1.0,1.0,1.0),glm::vec3(1.0,1.0,1.0)));
-    //sceneObjects.push_back(Primitive::makeLambertSphere(3.0, glm::vec3(0.0f,0.0f,-15.0f), glm::vec3(1.0,1.0,1.0)));
+   // sceneObjects.push_back(Primitive::makeLambertSphere(3.0,glm::vec3(0.0f, 0.0f, -15.0f),glm::vec3(1.0,1.0,1.0)));
 
-    
     //back wall
-    sceneObjects.push_back(Primitive::makeLambertCube(glm::vec3(-20.0f, -10.0f, -26.0f),glm::vec3(20.0f, 10.0f, -25.0f), glm::vec3(1.0,1.0,1.0)));
+    sceneObjects.push_back(Primitive::makeLambertCube(glm::vec3(-20.0f, -10.0f, -26.0f),glm::vec3(20.0f, 10.0f, -25.0f), glm::vec3(1.0,0.0,0.0)));
     
     //ceiling
-    sceneObjects.push_back(Primitive::makeLambertCube(glm::vec3(-20.0f, 10.0f, -25.0f),glm::vec3(20.0f, 11.0f, 21.0f), glm::vec3(1.0,1.0,1.0)));
+    sceneObjects.push_back(Primitive::makeLambertCube(glm::vec3(-20.0f, 10.0f, -25.0f),glm::vec3(20.0f, 11.0f, 21.0f), glm::vec3(1.0,1.0,1.0),glm::vec3(1.0,1.0,1.0)));
    
     //floor
-    sceneObjects.push_back(Primitive::makeLambertCube(glm::vec3(-20.0f, -11.0f, -25.0f),glm::vec3(20.0f, -10.0f, 21.0f), glm::vec3(1.0,1.0,1.0)));
+    sceneObjects.push_back(Primitive::makeLambertCube(glm::vec3(-20.0f, -11.0f, -25.0f),glm::vec3(20.0f, -10.0f, 21.0f), glm::vec3(0.0,0.0,1.0),glm::vec3(1.0,1.0,1.0)));
     
     //left wall
     sceneObjects.push_back(Primitive::makeLambertCube(glm::vec3(-21.0f, -10.0f, -25.0f),glm::vec3(-20.0f, 10.0f, 21.0f), glm::vec3(1.0,1.0,1.0)));
 
     //right wall
-    sceneObjects.push_back(Primitive::makeLambertCube(glm::vec3(20.0f, -10.0f, -25.0f),glm::vec3(21.0f, 10.0f, 21.0f), glm::vec3(1.0,1.0,1.0)));
+    sceneObjects.push_back(Primitive::makeLambertCube(glm::vec3(20.0f, -10.0f, -25.0f),glm::vec3(21.0f, 10.0f, 21.0f), glm::vec3(0.0,1.0,0.0)));
     
     //front wall
-    sceneObjects.push_back(Primitive::makeLambertCube(glm::vec3(-20.0f, -10.0f, 20.0f),glm::vec3(20.0f, 10.0f, 21.0f), glm::vec3(1.0,1.0,1.0)));
+    sceneObjects.push_back(Primitive::makeLambertCube(glm::vec3(-20.0f, -10.0f, 20.0f),glm::vec3(20.0f, 10.0f, 21.0f), glm::vec3(1.0,0.0,0.0)));
 
 
     shared_ptr<Scene> scene(new Scene(sceneObjects));
     shared_ptr<Image> image(new Image(800,600));
 
     Renderer r;
-    r.render(scene, image);
+    r.render(scene, image, 16);
 
     ImageWriter writer;
     writer.writePPM(image, "test.ppm");

@@ -25,7 +25,7 @@ public:
     Renderer();
     ~Renderer(){}
 
-    void render(shared_ptr<Scene> scene, shared_ptr<Image> target);
+    void render(shared_ptr<Scene> scene, shared_ptr<Image> target, int samplesPerPixel);
     glm::vec3 traceRay(Ray* r, int depth, uniform_real<float>& rDist);
     Ray rayForPixel(double ndcX, double ndcY);
 
