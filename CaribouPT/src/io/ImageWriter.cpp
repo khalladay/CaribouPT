@@ -31,7 +31,7 @@ void ImageWriter::writePPM(const std::tr1::shared_ptr<Image> image,
             int r = min(255,toInt(col[0]));
             int g = min(255,toInt(col[1]));
             int b = min(255,toInt(col[2]));
-        
+           // printf("%f %f %f\n", col[0], col[1], col[2]);
             fprintf(f,"%d %d %d ", r, g, b);
         }
     }

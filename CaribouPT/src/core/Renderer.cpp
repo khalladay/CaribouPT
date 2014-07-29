@@ -39,17 +39,19 @@ void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target, int sam
     {
         aspect = ((double)target->h/(double)target->w);
     }
+    glm::vec3 col = glm::vec3(0.0);
 
     //parallelize this loop, 1 iteration per thread
     //division of work done at runtime since image size isn't known
-    #pragma omp parallel for schedule(dynamic, 1) collapse(2)
+    //#pragma omp parallel for schedule(dynamic, 1) private(r)
+    col = glm::vec3(0.0);
+    //#pragma omp parallel for schedule(dynamic, 1) private(col)
     for (int y = 0; y < target->h; y++)
     {
         for (int x = 0; x < target->w; x++)
         {
-            glm::vec3 col = glm::vec3(0.0);
             int i = y * target->w + x;
-
+            col = glm::vec3(0.0);
             for (int s = 0; s < samplesPerPixel; s++)
             {
                 double pixX =  (x + 0.5);
@@ -63,9 +65,9 @@ void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target, int sam
                 col = col + (traceRay(&r, 1, randDist) * (1.0f/(float)samplesPerPixel));
             }
 
-            target->pixels[i*3] = (col.x);
-            target->pixels[i*3+1] = (col.y);
-            target->pixels[i*3+2] = (col.z);
+            target->pixels[i*3] = clampZeroOne(col.x);
+            target->pixels[i*3+1] = clampZeroOne(col.y);
+            target->pixels[i*3+2] = clampZeroOne(col.z);
         }
     }
 }
@@ -83,7 +85,7 @@ glm::vec3 Renderer::traceRay(Ray* r, int depth, uniform_real<float>& rDist)
         return glm::vec3(0.0,0.5,0.0);
     }
     
-    if (depth > 1)
+    if (depth > 5)
     {
         return isect.hitObj->_mat->_eCol;
     }
@@ -91,23 +93,31 @@ glm::vec3 Renderer::traceRay(Ray* r, int depth, uniform_real<float>& rDist)
     vec3 em = isect.hitObj->_mat->_eCol;
     vec3 hitPoint = r->o + r->d * r->t;
     vec3 normal =isect.hitObj->_shape->normalAtPoint(hitPoint);
-   // vec3 nl = glm::dot(normal, r->d) < 0 ? normal : normal * -1.0f;
+    vec3 nl = glm::dot(normal, r->d) < 0 ? normal : normal * -1.0f;
     
-    float cosTheta = glm::dot(normal, r->d);
+    float cosTheta = glm::dot(nl, r->d);
     
     float r1=2*M_PI*rDist(randGen);
     float r2=rDist(randGen);
     float r2s=glm::sqrt(r2);
     
-    vec3 w = normal;
+    vec3 w = nl;
+ //   if (w.x == 0)w.x*=w.x;
+  //  if (w.y == 0)w.y*=w.y;
+ //   if (w.y == 0)w.z*=w.z;
+    
     vec3 u = (fabs(w.x) > 0.1) ? vec3(0.0,1.0,0.0) : vec3(1.0, 0.0, 0.0);
+//    if (u.x == 0)u.x*=u.x;
+//    if (u.y == 0)u.y*=u.y;
+//    if (u.y == 0)u.z*=u.z;
+    
     u = normalize( cross ( u, w));
     vec3 v = cross(w,u);
     
     //todo: deal with signed zeros in a more useful way
-    if (v.x == 0)v.x*=v.x;
-    if (v.y == 0)v.y*=v.y;
-    if (v.y == 0)v.z*=v.z;
+//    if (v.x == 0)v.x*=v.x;
+//    if (v.y == 0)v.y*=v.y;
+//    if (v.y == 0)v.z*=v.z;
 
     vec3 brdf = isect.hitObj->_mat->getBRDF()->eval(r->d, r->d);
 
@@ -116,7 +126,7 @@ glm::vec3 Renderer::traceRay(Ray* r, int depth, uniform_real<float>& rDist)
     
     //successive calls to traceRay provide the Li term for previous
     //lighting calculations
-    return em + ( glm::vec3(1.0) * traceRay(r, ++depth, rDist) );
+    return em + ( brdf * traceRay(r, ++depth, rDist) );
 }
 
 Ray Renderer::rayForPixel(double ndcX, double ndcY)

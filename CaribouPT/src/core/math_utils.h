@@ -11,7 +11,10 @@
 
 #include <math.h>
 
-inline float clampZeroOne(float x){ return x<0 ? 0 : x>1 ? 1 : x; }
+inline float clampZeroOne(float x)
+{
+    return x<0 ? 0 : x>1 ? 1 : x;
+}
 inline int toInt(float x)
 {
     return int( pow( x,1/2.2)*255+.5);
