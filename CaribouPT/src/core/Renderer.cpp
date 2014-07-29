@@ -16,6 +16,8 @@
 #include "Intersection.h"
 #include "math_utils.h"
 
+#define DEG2RAD 0.0174532925
+
 Renderer::Renderer()
 {
     randGen.seed((unsigned int)time(NULL));
@@ -26,9 +28,7 @@ void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target, int sam
     _scene = scene;
     uniform_real<float> randDist(0.0,1.0);
 
-    const double deg2rad = 0.0174532925;
-
-    double fov = tan( (_scene->cam()->fov/ 2.0) * deg2rad);
+    double fov = tan( (_scene->cam()->fov/ 2.0) * DEG2RAD);
     double aspect;
 
     if (target->w >= target->h)
@@ -39,13 +39,10 @@ void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target, int sam
     {
         aspect = ((double)target->h/(double)target->w);
     }
+    
     glm::vec3 col = glm::vec3(0.0);
 
-    //parallelize this loop, 1 iteration per thread
-    //division of work done at runtime since image size isn't known
-    //#pragma omp parallel for schedule(dynamic, 1) private(r)
-    col = glm::vec3(0.0);
-    //#pragma omp parallel for schedule(dynamic, 1) private(col)
+    #pragma omp for schedule(dynamic) collapse(2)
     for (int y = 0; y < target->h; y++)
     {
         for (int x = 0; x < target->w; x++)
@@ -59,7 +56,6 @@ void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target, int sam
 
                 pixX = (2 * pixX / (double)target->w - 1) * aspect * fov;
                 pixY = (1 - 2 * pixY / (double)target->h) * fov;
-
 
                 Ray r = rayForPixel(pixX, pixY);
                 col = col + (traceRay(&r, 1, randDist) * (1.0f/(float)samplesPerPixel));
@@ -85,6 +81,7 @@ glm::vec3 Renderer::traceRay(Ray* r, int depth, uniform_real<float>& rDist)
         return glm::vec3(0.0,0.5,0.0);
     }
     
+    //todo: add russian roulette
     if (depth > 5)
     {
         return isect.hitObj->_mat->_eCol;
@@ -102,30 +99,16 @@ glm::vec3 Renderer::traceRay(Ray* r, int depth, uniform_real<float>& rDist)
     float r2s=glm::sqrt(r2);
     
     vec3 w = nl;
- //   if (w.x == 0)w.x*=w.x;
-  //  if (w.y == 0)w.y*=w.y;
- //   if (w.y == 0)w.z*=w.z;
-    
     vec3 u = (fabs(w.x) > 0.1) ? vec3(0.0,1.0,0.0) : vec3(1.0, 0.0, 0.0);
-//    if (u.x == 0)u.x*=u.x;
-//    if (u.y == 0)u.y*=u.y;
-//    if (u.y == 0)u.z*=u.z;
-    
     u = normalize( cross ( u, w));
     vec3 v = cross(w,u);
     
-    //todo: deal with signed zeros in a more useful way
-//    if (v.x == 0)v.x*=v.x;
-//    if (v.y == 0)v.y*=v.y;
-//    if (v.y == 0)v.z*=v.z;
 
     vec3 brdf = isect.hitObj->_mat->getBRDF()->eval(r->d, r->d);
 
     r->o = hitPoint;
     r->setDirection(normalize(u * cos(r1)*r2s + v*sin(r1)*r2s + w * glm::sqrt(1-r2)));
     
-    //successive calls to traceRay provide the Li term for previous
-    //lighting calculations
     return em + ( brdf * traceRay(r, ++depth, rDist) );
 }
 

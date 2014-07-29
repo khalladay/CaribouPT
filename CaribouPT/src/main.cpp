@@ -21,7 +21,7 @@ using namespace std::tr1;
 int main()
 {
     std::vector<shared_ptr<Primitive> > sceneObjects;
-   // sceneObjects.push_back(Primitive::makeLambertSphere(3.0,glm::vec3(0.0f, 0.0f, -15.0f),glm::vec3(1.0,1.0,1.0)));
+    sceneObjects.push_back(Primitive::makeLambertSphere(3.0,glm::vec3(0.0f, 0.0f, -15.0f),glm::vec3(1.0,1.0,1.0),glm::vec3(0.5,0.5,0.5)));
 
     //back wall
     sceneObjects.push_back(Primitive::makeLambertCube(glm::vec3(-20.0f, -10.0f, -26.0f),glm::vec3(20.0f, 10.0f, -25.0f), glm::vec3(1.0,0.0,0.0)));
@@ -49,7 +49,7 @@ int main()
     shared_ptr<Image> image(new Image(800,600));
 
     Renderer r;
-    r.render(scene, image, 8);
+    r.render(scene, image, 64);
 
     ImageWriter writer;
     writer.writePPM(image, "test.ppm");
