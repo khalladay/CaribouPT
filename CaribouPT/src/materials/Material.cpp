@@ -8,10 +8,18 @@
 
 #include "Material.h"
 #include "LambertBRDF.h"
+#include "MirrorBRDF.h"
 
 shared_ptr<Material> Material::makeLambert(glm::vec3 color, glm::vec3 eCol)
 {
   shared_ptr<BDF> brdf(new LambertBRDF(color));
   shared_ptr<Material> rMat(new Material(brdf, eCol));
   return rMat;
+}
+
+shared_ptr<Material> Material::makeMirror(glm::vec3 color, glm::vec3 eCol)
+{
+    shared_ptr<BDF> brdf(new MirrorBRDF(color));
+    shared_ptr<Material> rMat(new Material(brdf, eCol));
+    return rMat;
 }

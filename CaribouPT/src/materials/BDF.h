@@ -11,6 +11,9 @@
 
 #include "glm.hpp"
 
+#define kReflTypeLambert 0
+#define kReflTypeMirror 1
+
 class BDF
 {
 public:
@@ -19,6 +22,11 @@ public:
     
     glm::vec3 worldToLocal(const glm::vec3& v);
     glm::vec3 localToWorld(const glm::vec3& v);
+   
+    virtual int getReflType()
+    {
+        return kReflTypeLambert;
+    }
     
     ~BDF(){}
 

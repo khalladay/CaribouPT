@@ -288,22 +288,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CaribouPT/src/core/Renderer.cpp"
-            timestampString = "428328761.241393"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -340,11 +324,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CaribouPT/src/core/Renderer.cpp"
-            timestampString = "428328761.241393"
+            timestampString = "428329851.09475"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist)"
             landmarkType = "5">
          </BreakpointContent>
@@ -388,11 +372,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CaribouPT/src/core/Renderer.cpp"
-            timestampString = "428328761.241393"
+            timestampString = "428329851.09475"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist)"
             landmarkType = "5">
          </BreakpointContent>
@@ -580,11 +564,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CaribouPT/src/core/Renderer.cpp"
-            timestampString = "428328761.241393"
+            timestampString = "428329851.09475"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist)"
             landmarkType = "5">
          </BreakpointContent>
@@ -596,11 +580,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CaribouPT/src/core/Renderer.cpp"
-            timestampString = "428328761.241393"
+            timestampString = "428329851.09475"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist)"
             landmarkType = "5">
          </BreakpointContent>
@@ -612,11 +596,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CaribouPT/src/core/Renderer.cpp"
-            timestampString = "428328761.241393"
+            timestampString = "428329851.09475"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist)"
             landmarkType = "5">
          </BreakpointContent>

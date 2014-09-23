@@ -21,13 +21,14 @@ using namespace std::tr1;
 int main()
 {
     std::vector<shared_ptr<Primitive> > sceneObjects;
-    sceneObjects.push_back(Primitive::makeLambertSphere(3.0,glm::vec3(0.0f, 0.0f, -15.0f),glm::vec3(1.0,1.0,1.0),glm::vec3(0.5,0.5,0.5)));
+    sceneObjects.push_back(Primitive::makeLambertSphere(3.0,glm::vec3(0.0f, 0.0f, -15.0f),glm::vec3(1.0,1.0,1.0),glm::vec3(0.0,0.0,0.0)));
+    sceneObjects.push_back(Primitive::makeMirrorSphere(3.0,glm::vec3(0.0f, -7.0f, -15.0f),glm::vec3(1.0,1.0,1.0),glm::vec3(0.0,0.0,0.0)));
 
     //back wall
     sceneObjects.push_back(Primitive::makeLambertCube(glm::vec3(-20.0f, -10.0f, -26.0f),glm::vec3(20.0f, 10.0f, -25.0f), glm::vec3(1.0,0.0,0.0)));
     
     //ceiling light
-    sceneObjects.push_back(Primitive::makeLambertCube(glm::vec3(-4.0f, 9.8f, -15.0f),glm::vec3(4.0f, 11.0f, -7.0f), glm::vec3(1.0,1.0,1.0),glm::vec3(1.0,1.0,1.0)));
+    sceneObjects.push_back(Primitive::makeLambertCube(glm::vec3(-4.0f, 9.9f, -15.0f),glm::vec3(4.0f, 10.0f, -7.0f), glm::vec3(1.0,1.0,1.0),glm::vec3(12.0,12.0,12.0)));
    
     //ceiling
     sceneObjects.push_back(Primitive::makeLambertCube(glm::vec3(-20.0f, 10.0f, -25.0f),glm::vec3(20.0f, 11.0f, 21.0f), glm::vec3(1.0,1.0,1.0)));

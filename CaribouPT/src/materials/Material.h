@@ -31,6 +31,7 @@ public:
     }
 
     static shared_ptr<Material> makeLambert(glm::vec3 color, glm::vec3 eColor);
+    static shared_ptr<Material> makeMirror(glm::vec3 color, glm::vec3 eColor);
 
     shared_ptr<BDF> _brdf;
     glm::vec3 _eCol;

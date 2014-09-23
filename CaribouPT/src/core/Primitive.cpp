@@ -18,6 +18,13 @@ shared_ptr<Primitive> Primitive::makeLambertSphere(double radius, glm::vec3 posi
     return prim;
 }
 
+shared_ptr<Primitive> Primitive::makeMirrorSphere(double radius, glm::vec3 position, glm::vec3 rColor, glm::vec3 eColor)
+{
+    shared_ptr<Sphere> shape(new Sphere(radius, position));
+    shared_ptr<Primitive> prim(new Primitive(shape, Material::makeMirror(rColor, eColor)));
+    return prim;
+}
+
 shared_ptr<Primitive> Primitive::makeLambertCube(glm::vec3 min, glm::vec3 max, glm::vec3 rColor, glm::vec3 eColor)
 {
     shared_ptr<Cube> shape(new Cube(min, max));

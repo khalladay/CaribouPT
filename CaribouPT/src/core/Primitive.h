@@ -20,6 +20,8 @@ public:
     ~Primitive(){}
     
     static shared_ptr<Primitive> makeLambertSphere(double radius, glm::vec3 position, glm::vec3 rColor, glm::vec3 eColor = glm::vec3(0.0));
+    static shared_ptr<Primitive> makeMirrorSphere(double radius, glm::vec3 position, glm::vec3 rColor, glm::vec3 eColor = glm::vec3(0.0));
+
     static shared_ptr<Primitive> makeLambertCube(glm::vec3 min, glm::vec3 max, glm::vec3 rColor, glm::vec3 eColor = glm::vec3(0.0));
     
     shared_ptr<Intersectable> _shape;

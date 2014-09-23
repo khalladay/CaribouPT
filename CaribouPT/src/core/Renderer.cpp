@@ -105,10 +105,13 @@ glm::vec3 Renderer::traceRay(Ray* r, int depth, uniform_real<float>& rDist)
     
 
     vec3 brdf = isect.hitObj->_mat->getBRDF()->eval(r->d, r->d);
-
     r->o = hitPoint;
-    r->setDirection(normalize(u * cos(r1)*r2s + v*sin(r1)*r2s + w * glm::sqrt(1-r2)));
-    
+
+    if (isect.hitObj->_mat->_brdf->getReflType()==0)
+    {
+        r->setDirection(normalize(u * cos(r1)*r2s + v*sin(r1)*r2s + w * glm::sqrt(1-r2)));
+    }
+    else r->setDirection(glm::reflect(r->d, normal));
     return em + ( brdf * traceRay(r, ++depth, rDist) );
 }
 
