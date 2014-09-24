@@ -20,13 +20,11 @@
 
 Renderer::Renderer()
 {
-    randGen.seed((unsigned int)time(NULL));
 }
 
 void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target, int samplesPerPixel)
 {
     _scene = scene;
-    uniform_real<float> randDist(0.0,1.0);
 
     double fov = tan( (_scene->cam()->fov/ 2.0) * DEG2RAD);
     double aspect;
@@ -40,11 +38,17 @@ void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target, int sam
         aspect = ((double)target->h/(double)target->w);
     }
     
-    glm::vec3 col = glm::vec3(0.0);
+    uniform_real<float> randDist(0.0,1.0);
 
-    #pragma omp for schedule(dynamic) collapse(2)
+    #pragma omp parallel for schedule(dynamic, 1) private(randDist)
     for (int y = 0; y < target->h; y++)
     {
+        ranlux64_base_01 generator;
+        generator.seed((unsigned int)time(NULL) + y + y);
+        uniform_real<float> randDist(0.0,1.0);
+        
+        glm::vec3 col;
+
         for (int x = 0; x < target->w; x++)
         {
             int i = y * target->w + x;
@@ -58,9 +62,9 @@ void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target, int sam
                 pixY = (1 - 2 * pixY / (double)target->h) * fov;
 
                 Ray r = rayForPixel(pixX, pixY);
-                col = col + (traceRay(&r, 1, randDist) * (1.0f/(float)samplesPerPixel));
+                col = col + (traceRay(&r, 1, randDist, generator) * (1.0f/(float)samplesPerPixel));
             }
-
+            
             target->pixels[i*3] = clampZeroOne(col.x);
             target->pixels[i*3+1] = clampZeroOne(col.y);
             target->pixels[i*3+2] = clampZeroOne(col.z);
@@ -68,7 +72,7 @@ void Renderer::render(shared_ptr<Scene> scene, shared_ptr<Image> target, int sam
     }
 }
 
-glm::vec3 Renderer::traceRay(Ray* r, int depth, uniform_real<float>& rDist)
+glm::vec3 Renderer::traceRay(Ray* r, int depth, uniform_real<float>& rDist, ranlux64_base_01& randGen)
 {
     using namespace glm;
 
@@ -112,7 +116,7 @@ glm::vec3 Renderer::traceRay(Ray* r, int depth, uniform_real<float>& rDist)
         r->setDirection(normalize(u * cos(r1)*r2s + v*sin(r1)*r2s + w * glm::sqrt(1-r2)));
     }
     else r->setDirection(glm::reflect(r->d, normal));
-    return em + ( brdf * traceRay(r, ++depth, rDist) );
+    return em + ( brdf * traceRay(r, ++depth, rDist, randGen) );
 }
 
 Ray Renderer::rayForPixel(double ndcX, double ndcY)

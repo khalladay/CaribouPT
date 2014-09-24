@@ -329,7 +329,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "112"
             endingLineNumber = "112"
-            landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist)"
+            landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist, ranlux64_base_01&amp; randGen)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -377,7 +377,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "99"
             endingLineNumber = "99"
-            landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist)"
+            landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist, ranlux64_base_01&amp; randGen)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -393,7 +393,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
             endingLineNumber = "81"
-            landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist)"
+            landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist, ranlux64_base_01&amp; randGen)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -569,7 +569,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
             endingLineNumber = "87"
-            landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist)"
+            landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist, ranlux64_base_01&amp; randGen)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -585,7 +585,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "90"
             endingLineNumber = "90"
-            landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist)"
+            landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist, ranlux64_base_01&amp; randGen)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -601,7 +601,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "107"
             endingLineNumber = "107"
-            landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist)"
+            landmarkName = "Renderer::traceRay(Ray* r, int depth, uniform_real&lt;float&gt;&amp; rDist, ranlux64_base_01&amp; randGen)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

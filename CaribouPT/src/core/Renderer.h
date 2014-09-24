@@ -26,12 +26,10 @@ public:
     ~Renderer(){}
 
     void render(shared_ptr<Scene> scene, shared_ptr<Image> target, int samplesPerPixel);
-    glm::vec3 traceRay(Ray* r, int depth, uniform_real<float>& rDist);
+    glm::vec3 traceRay(Ray* r, int depth, uniform_real<float>& rDist, ranlux64_base_01& randGen);
     Ray rayForPixel(double ndcX, double ndcY);
 
 private:
     shared_ptr<Scene> _scene;
-
-    ranlux64_base_01 randGen;
 };
 #endif /* defined(__CaribouPT__Renderer__) */
