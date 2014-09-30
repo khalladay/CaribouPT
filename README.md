@@ -1,4 +1,4 @@
-TurtlePT
+CaribouPT
 =========
 
 A CPU based path tracer using OpenMP. 
